@@ -1,4 +1,4 @@
-# TIL [![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/dannyphillips/til)
+# Recall [![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/dannyphillips/til)
 
 A bot for capturing things I learn everyday &amp; voting on the best learnings
 
