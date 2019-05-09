@@ -54,7 +54,7 @@ exports.recallMonthly = functions.https.onRequest((r, response) => {
 });
 
 // Posts Random Digest Poll
-exports.recallMonthly = functions.https.onRequest((r, response) => {
+exports.recallRandom = functions.https.onRequest((r, response) => {
   response.send("Successfully posted message to slack!");
   debugger;
   return request.post(slackWebhook, {
