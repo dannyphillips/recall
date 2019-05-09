@@ -12,7 +12,6 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
 // Posts Hello World to Slack
 exports.helloSlack = functions.https.onRequest((r, response) => {
   response.send("Successfully posted message to slack!");
-  debugger;
   return request.post(slackWebhook, {
     json: {
       text: `Hello Slack, this is Recall!`
@@ -23,7 +22,6 @@ exports.helloSlack = functions.https.onRequest((r, response) => {
 // Posts Daily TIL Form
 exports.recallDaily = functions.https.onRequest((r, response) => {
   response.send("Successfully posted message to slack!");
-  debugger;
   return request.post(slackWebhook, {
     json: {
       text: `What did you learn today? https://goo.gl/forms/nLCmgTCFPoVNe0CF2!`
@@ -34,10 +32,72 @@ exports.recallDaily = functions.https.onRequest((r, response) => {
 // Posts Weekly Digest Poll
 exports.recallWeekly = functions.https.onRequest((r, response) => {
   response.send("Successfully posted message to slack!");
-  debugger;
+  const blocks = [
+    {
+      type: "section",
+      text: {
+        type: "plain_text",
+        emoji: true,
+        text: "Vote for your top TIL from the past week:"
+      }
+    },
+    {
+      type: "divider"
+    },
+    {
+      type: "section",
+      text: {
+        type: "mrkdwn",
+        text: "*Today - 4:30-5pm*\nEveryone is available: @iris, @zelda"
+      },
+      accessory: {
+        type: "button",
+        text: {
+          type: "plain_text",
+          emoji: true,
+          text: "Choose"
+        },
+        value: "click_me_123"
+      }
+    },
+    {
+      type: "section",
+      text: {
+        type: "mrkdwn",
+        text: "*Tomorrow - 4-4:30pm*\nEveryone is available: @iris, @zelda"
+      },
+      accessory: {
+        type: "button",
+        text: {
+          type: "plain_text",
+          emoji: true,
+          text: "Choose"
+        },
+        value: "click_me_123"
+      }
+    },
+    {
+      type: "section",
+      text: {
+        type: "mrkdwn",
+        text:
+          "*Tomorrow - 6-6:30pm*\nSome people aren't available: @iris, ~@zelda~"
+      },
+      accessory: {
+        type: "button",
+        text: {
+          type: "plain_text",
+          emoji: true,
+          text: "Choose"
+        },
+        value: "click_me_123"
+      }
+    }
+  ];
   return request.post(slackWebhook, {
     json: {
-      text: `Vote for the top TIL this week!`
+      text: `Vote for the top TIL this week!`,
+      blocks: blocks
     }
   });
 });
@@ -45,7 +105,6 @@ exports.recallWeekly = functions.https.onRequest((r, response) => {
 // Posts Monthly Digest Poll
 exports.recallMonthly = functions.https.onRequest((r, response) => {
   response.send("Successfully posted message to slack!");
-  debugger;
   return request.post(slackWebhook, {
     json: {
       text: `Vote for the top TIL this month!`
@@ -56,7 +115,6 @@ exports.recallMonthly = functions.https.onRequest((r, response) => {
 // Posts Random Digest Poll
 exports.recallRandom = functions.https.onRequest((r, response) => {
   response.send("Successfully posted message to slack!");
-  debugger;
   return request.post(slackWebhook, {
     json: {
       text: `Vote for the top TIL from this random selection!`
