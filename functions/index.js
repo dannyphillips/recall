@@ -26,7 +26,7 @@ exports.recallDaily = functions.https.onRequest((r, response) => {
   debugger;
   return request.post(slackWebhook, {
     json: {
-      text: `Hello Slack, this is Recall!`
+      text: `What did you learn today? https://goo.gl/forms/nLCmgTCFPoVNe0CF2!`
     }
   });
 });
@@ -37,7 +37,7 @@ exports.recallWeekly = functions.https.onRequest((r, response) => {
   debugger;
   return request.post(slackWebhook, {
     json: {
-      text: `Hello Slack, this is Recall!`
+      text: `Vote for the top TIL this week!`
     }
   });
 });
@@ -48,7 +48,7 @@ exports.recallMonthly = functions.https.onRequest((r, response) => {
   debugger;
   return request.post(slackWebhook, {
     json: {
-      text: `Hello Slack, this is Recall!`
+      text: `Vote for the top TIL this month!`
     }
   });
 });
@@ -59,7 +59,7 @@ exports.recallMonthly = functions.https.onRequest((r, response) => {
   debugger;
   return request.post(slackWebhook, {
     json: {
-      text: `Hello Slack, this is Recall!`
+      text: `Vote for the top TIL from this random selection!`
     }
   });
 });
