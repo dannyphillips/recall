@@ -1,0 +1,26 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/recall
+    docker:
+      - image: circleci/node:latest
+    steps:
+      - checkout
+      - run:
+          name: Checkout /functions dir
+          command: cd functions
+      - run:
+          name: Install npm
+          command: 'sudo npm install -g npm@latest'
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Install Dependencies
+          command: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+      - run:
+          name: Check for errors
+          command: npm run lint
