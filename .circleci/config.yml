@@ -17,4 +17,4 @@ jobs:
           command: npm install
       - run:
           name: Check for errors
-          command: npm run lint
+          command: cd functions && npm run lint
