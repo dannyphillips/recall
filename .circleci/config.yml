@@ -15,6 +15,3 @@ jobs:
       - run:
           name: Install Dependencies
           command: npm install
-      - run:
-          name: Check for errors
-          command: cd functions && npm run lint
