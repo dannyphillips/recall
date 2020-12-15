@@ -10,8 +10,5 @@ jobs:
           name: Checkout /functions dir
           command: cd functions
       - run:
-          name: Install npm
-          command: 'sudo npm install -g npm@latest'
-      - run:
           name: Install Dependencies
           command: npm install
