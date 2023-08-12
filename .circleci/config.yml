@@ -8,4 +8,4 @@ jobs:
       - checkout
       - run:
           name: Install Dependencies
-          command: npm install
+          command: cd functions & npm install
