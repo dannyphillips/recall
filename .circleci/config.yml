@@ -5,7 +5,8 @@ jobs:
     docker:
       - image: cimg/node:current
     steps:
-      - checkout
+      - checkout:
+        path: ~/recall
       - run:
           name: Install Dependencies
-          command: cd functions & npm install
+          command: npm install
